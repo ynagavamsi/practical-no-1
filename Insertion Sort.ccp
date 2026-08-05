@@ -1,15 +1,39 @@
-n = int(input("Enter the number of elements: "))
-arr = []
-print("Enter", n, "elements:")
-for i in range(n):
-    arr.append(int(input()))
-for i in range(1, n):
-    key = arr[i]
-    j = i - 1
-    while j >= 0 and arr[j] > key:
-        arr[j + 1] = arr[j]
-        j -= 1
-    arr[j + 1] = key
-print("Sorted array in ascending order:", end=" ")
-for i in arr:
-    print(i, end=" ")
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    int arr[n];
+
+    cout << "Enter " << n << " elements:" << endl;
+
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Insertion Sort
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+
+        arr[j + 1] = key;
+    }
+
+    cout << "Sorted array in ascending order: ";
+
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+
+    return 0;
+}
