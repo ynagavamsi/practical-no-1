@@ -1,12 +1,37 @@
-n = int(input("Enter the number of elements: "))
-arr = []
-print(f"Enter {n} elements:")
-for i in range(n):
-    arr.append(int(input()))
-for i in range(n - 1):
-    for j in range(n - i - 1):
-        if arr[j] > arr[j + 1]:
-            arr[j], arr[j + 1] = arr[j + 1], arr[j]
-print("Sorted array in ascending order:", end=" ")
-for num in arr:
-    print(num, end=" ")
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    int arr[n];
+
+    cout << "Enter " << n << " elements:" << endl;
+
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Bubble Sort
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Swap
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    cout << "Sorted array in ascending order: ";
+
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+
+    return 0;
+}
